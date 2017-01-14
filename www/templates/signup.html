@@ -1,0 +1,55 @@
+<style>
+  #signup-input3
+  #signup-input9
+  #signup-select2
+  #signup-select1{
+    height: 50px;
+    padding: 6px 6px 6px 16px;
+  }
+</style>
+<ion-view title="Signup" id="page6">
+  <ion-content padding="true" class="has-header">
+    <form id="signup-form2" class="list">
+      <ion-list id="signup-list2">
+        <label class="item item-input" id="signup-input3" name="name">
+          <span class="input-label">Full Name</span>
+          <input type="text" placeholder="">
+        </label>
+        <label class="item item-select" id="signup-select2" name="gender">
+          <span class="input-label">Gender</span>
+          <select>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label class="item item-input" id="signup-input9" name="major">
+          <span class="input-label">Major</span>
+          <input type="text" placeholder="">
+        </label>
+        <label class="item item-select" id="signup-select1" name="year">
+          <span class="input-label">Year</span>
+          <select>
+            <option>1st</option>
+            <option>2nd</option>
+            <option>3rd</option>
+            <option>4th</option>
+            <option>5th</option>
+            <option>Graduate</option>
+          </select>
+        </label>
+      </ion-list>
+      <div class="spacer" style="width: 300px; height: 21px;"></div>
+      <label class="item item-input" id="signup-input15" name="email">
+        <input type="email" placeholder="Email (.edu)">
+      </label>
+      <label class="item item-input" id="signup-input16" name="pass">
+        <input type="password" placeholder="Password">
+      </label>
+      <label class="item item-input" id="signup-input17" name="cpass">
+        <input type="password" placeholder="Confirm Password">
+      </label>
+      <a ui-sref="success" id="signup-button3" class="button button-positive  button-block">Sign up</a>
+    </form>
+  </ion-content>
+</ion-view>
