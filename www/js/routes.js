@@ -68,6 +68,16 @@ angular.module('app.routes', [])
     }
   })
 
+  .state('tabsController.courseListing', {
+    url: '/courseListing',
+    views: {
+      'tab3': {
+        templateUrl: 'templates/courseListing.html',
+        controller: 'courseListingCtrl'
+      }
+    }
+  })
+
   .state('success', {
     url: '/success',
     templateUrl: 'templates/success.html',
@@ -80,6 +90,16 @@ angular.module('app.routes', [])
       'tab2': {
         templateUrl: 'templates/groupChat.html',
         controller: 'groupChatCtrl'
+      }
+    }
+  })
+
+  .state('tabsController.addCourse', {
+    url: '/addCourse',
+    views: {
+      'tab3': {
+        templateUrl: 'templates/addCourse.html',
+        controller: 'addCourseCtrl'
       }
     }
   })
