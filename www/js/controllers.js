@@ -79,9 +79,9 @@ function ($scope, $stateParams, $ionicPlatform, $ionicPush, $http) {
 
 }])
 
-.controller('groupsCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
-function ($scope, $rootScope, $stateParams, $state) {
-
+.controller('groupsCtrl', ['$scope', '$rootScope', '$stateParams', '$state', '$http', 
+function ($scope, $rootScope, $stateParams, $state, $http) {
+        console.log($stateParams);
 
 }])
 
