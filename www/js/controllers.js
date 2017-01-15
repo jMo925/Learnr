@@ -111,8 +111,8 @@ function ($scope, $rootScope, $stateParams, $state) {
 
 .controller('groupChatCtrl', ['$scope', '$rootScope', '$stateParams', '$state',
 function ($scope, $rootScope, $stateParams, $state) {
-    $scope.title = $rootScope.groups[$stateParams.id - 1].name + " Chat";
-    console.log($stateParam.id);
+    console.log($stateParams.id);
+    $scope.title = $stateParams.id + " Chat";
 
 }])
 

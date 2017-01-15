@@ -4,7 +4,7 @@
   </ion-nav-buttons>
   <ion-content padding="false" class="has-header">
     <ion-list id="groups-list3">
-      <ion-item ng-repeat="group in groups" ui-sref="tabsController.groupChat({ groupId: $rootScope.indexOf(group) })">
+      <ion-item ng-repeat="group in groups" ui-sref="tabsController.groupChat({ id: group.name })">
           {{group.name}}
         <span class="item-note">{{group.tier}}</span>
       </ion-item>
