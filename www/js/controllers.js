@@ -70,7 +70,7 @@ function ($scope, $rootScope, $stateParams, $state) {
 function ($scope, $stateParams, $ionicPlatform, $ionicPush, $http) {
   $ionicPlatform.ready(function() {
     $ionicPush.register().then(function(t) {
-      $http.get('https://your-server.com/reg/' + t.token)
+      $http.get('https://2d5cb4bf.ngrok.io/reg/' + t.token)
       .success(function() {
           console.log('Token registered');
       })
@@ -142,7 +142,7 @@ function ($scope, $rootScope, $stateParams, $state, $http) {
         $rootScope.notifs.push({ text: "You added course " + courseName });
         console.log($rootScope.courses);
         $http({
-          url: 'https://your-server.com/groups/create',
+          url: 'https://2d5cb4bf.ngrok.io/groups/create',
           method: 'POST',
           data: courseInfo,
           headers: {'Content-Type': 'application/json'}
