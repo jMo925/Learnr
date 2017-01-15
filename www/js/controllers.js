@@ -11,7 +11,8 @@ function ($scope, $rootScope, $stateParams, $state) {
     $rootScope.pass = "pogchamp";
 
     $rootScope.courses = [];
-    $rootScope.groups = [];
+    $rootScope.groups = [ { name: "No groups yet", tier: "" }];
+    $rootScope.notifs = [ { text: "Nothing yet!" }];
         
     $scope.submit = function() {
         var user = $('#user').val();
@@ -130,6 +131,10 @@ function ($scope, $rootScope, $stateParams, $state) {
         var grp = $('#group').val();
         var courseInfo = { 'name': courseName, 'tier': $scope.data.tier, 'mentor': mentor, 'hrs': hrs, 'group': grp }
         $rootScope.courses.push(courseInfo);
+        if ($rootScope.courses.length() == 1) {
+            $rootScope.notifs = [];
+        }
+        $rootScope.notifs.push({ text: "You added course " + courseName });
         console.log($rootScope.courses);
         $state.go("tabsController.editProfile");
     }
