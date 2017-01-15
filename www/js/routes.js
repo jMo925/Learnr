@@ -85,7 +85,7 @@ angular.module('app.routes', [])
   })
 
   .state('tabsController.groupChat', {
-    url: '/chat',
+    url: '/chat/:id',
     views: {
       'tab2': {
         templateUrl: 'templates/groupChat.html',
