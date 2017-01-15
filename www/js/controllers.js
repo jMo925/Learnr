@@ -10,9 +10,9 @@ function ($scope, $rootScope, $stateParams, $state) {
     $rootScope.email = "boostedmonkey";
     $rootScope.pass = "pogchamp";
 
-    $rootScope.courses = [];
-    $rootScope.groups = [ { name: "No groups yet", tier: "" }];
-    $rootScope.notifs = [ { text: "Nothing yet!" }];
+    $rootScope.courses = [ { name: "No courses yet", tier: "" } ];
+    $rootScope.groups = [ { name: "No groups yet", tier: "" } ];
+    $rootScope.notifs = [ { text: "Nothing yet!" } ];
         
     $scope.submit = function() {
         var user = $('#user').val();
@@ -106,16 +106,10 @@ function ($scope, $rootScope, $stateParams, $state) {
 
 .controller('groupChatCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
 function ($scope, $rootScope, $stateParams, $state) {
-
+    $scope.title = $rootScope.groups[$stateParams.id - 1].name + " Chat";
+    console.log($stateParam.id);
 
 }])
-
-
-/*.controller('courseListingCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
-function ($scope, $rootScope, $stateParams, $state) {
-
-
-}])*/
 
 
 .controller('addCourseCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
@@ -130,12 +124,19 @@ function ($scope, $rootScope, $stateParams, $state) {
         var hrs = $('#time').val();
         var grp = $('#group').val();
         var courseInfo = { 'name': courseName, 'tier': $scope.data.tier, 'mentor': mentor, 'hrs': hrs, 'group': grp }
-        $rootScope.courses.push(courseInfo);
-        if ($rootScope.courses.length() == 1) {
+        if ($rootScope.courses[0].tier == '') {
             $rootScope.notifs = [];
+            $rootScope.courses = [];
         }
+        $rootScope.courses.push(courseInfo);
         $rootScope.notifs.push({ text: "You added course " + courseName });
         console.log($rootScope.courses);
+
+        $('#course').prop('selectedIndex', 0);
+        $('#mentor').prop('selectedIndex', 0);
+        $('#time').val('');
+        $('#group').val('');
+
         $state.go("tabsController.editProfile");
     }
 
