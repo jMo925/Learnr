@@ -80,6 +80,13 @@ function ($scope, $stateParams, $ionicPlatform, $ionicPush, $http) {
     });
     $scope.$on('cloud:push:notification', function(event, data) {
       var msg = data.message;
+      if ($rootScope.groups[0].tier == '') {
+            $rootScope.groups = [];
+      }
+      $rootScope.groups.push({ 'name': msg.title, 'tier': $rootScope.courses.find(
+        function(element, index, array) {
+            return element.name == msg.title;
+      }).tier);
       alert(msg.title + ': ' + msg.text);
     });
   });
