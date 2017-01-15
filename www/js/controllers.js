@@ -4,16 +4,18 @@ angular.module('app.controllers', ['ionic.cloud'])
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $rootScope, $stateParams, $state) {
-    $scope.submit = function() {
-        $rootScope.fullname = "Boosted Monkey";
-        $rootScope.gender = "Male";
-        $rootScope.major = "Monkey Science";
-        $rootScope.year = "3rd year";
-        $rootScope.email = "boostedmonkey";
-        $rootScope.pass = "pogchamp";
+    
+    $rootScope.fullname = "Boosted Monkey";
+    $rootScope.gender = "Male";
+    $rootScope.major = "Monkey Science";
+    $rootScope.year = "3rd year";
+    $rootScope.email = "boostedmonkey";
+    $rootScope.pass = "pogchamp";
 
+    $rootScope.courses = [];
+    $rootScope.groups = [];
         
-
+    $scope.submit = function() {
         var user = $('#user').val();
         var password = $('#passwd').val();
 

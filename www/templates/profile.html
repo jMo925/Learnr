@@ -4,7 +4,8 @@
   </ion-nav-buttons>
   <ion-content padding="true" class="has-header">
     <div class="list card" id="profile-card22">
-      <ion-item class="item-avatar" id="profile-list-item7">
+      <ion-item class="item-icon-left item-avatar" id="profile-list-item7">
+        <i class="icon ion-android-person" style="padding-left: 10px;"></i>
         <h2>{{fullname}}</h2>
         <p>{{gender}}, {{year}}, {{major}}</p>
       </ion-item>
@@ -25,7 +26,7 @@
             <span class="item-note">Tier 2</span>
           </ion-item>
         </ion-list>
-        <a ui-sref="tabsController.courseListing" id="courseListingButton" class="button button-stable  button-block">Course Listings</a>
+        <!--a ui-sref="tabsController.courseListing" id="courseListingButton" class="button button-stable  button-block">Course Listings</a-->
       </div>
     </div>
     <a ui-sref="tabsController.editProfile" id="profile-button6" class="button button-balanced  button-block">Edit Profile</a>
