@@ -1,8 +1,8 @@
 angular.module('app.controllers', ['ionic.cloud'])
 
-.controller('loginCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
+.controller('loginCtrl', ['$scope', '$rootScope', '$stateParams', '$state',
 function ($scope, $rootScope, $stateParams, $state) {
-    
+
     $rootScope.fullname = "Boosted Monkey";
     $rootScope.gender = "Male";
     $rootScope.major = "Monkey Science";
@@ -13,7 +13,7 @@ function ($scope, $rootScope, $stateParams, $state) {
     $rootScope.courses = [];
     $rootScope.groups = [ { name: "No groups yet", tier: "" }];
     $rootScope.notifs = [ { text: "Nothing yet!" }];
-        
+
     $scope.submit = function() {
         var user = $('#user').val();
         var password = $('#passwd').val();
@@ -35,7 +35,7 @@ function ($scope, $rootScope, $stateParams, $state) {
 
 }])
 
-.controller('signupCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
+.controller('signupCtrl', ['$scope', '$rootScope', '$stateParams', '$state',
 function ($scope, $rootScope, $stateParams, $state) {
     $scope.submit = function() {
         $rootScope.fullname = $('#fullname').val();
@@ -70,7 +70,13 @@ function ($scope, $rootScope, $stateParams, $state) {
 function ($scope, $stateParams, $ionicPlatform, $ionicPush, $http) {
   $ionicPlatform.ready(function() {
     $ionicPush.register().then(function(t) {
-      $http.get('https://www.example.com/reg/' + t.token);
+      $http.get('https://your-server.com/reg/' + t.token)
+      .success(function() {
+          console.log('Token registered');
+      })
+      .error(function() {
+          console.log('ERROR! Token registration failed');
+      });
     });
     $scope.$on('cloud:push:notification', function(event, data) {
       var msg = data.message;
@@ -80,48 +86,48 @@ function ($scope, $stateParams, $ionicPlatform, $ionicPush, $http) {
 
 }])
 
-.controller('groupsCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
+.controller('groupsCtrl', ['$scope', '$rootScope', '$stateParams', '$state',
 function ($scope, $rootScope, $stateParams, $state) {
 
 
 }])
 
-.controller('profileCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
+.controller('profileCtrl', ['$scope', '$rootScope', '$stateParams', '$state',
 function ($scope, $rootScope, $stateParams, $state) {
 
 
 }])
 
-.controller('editProfileCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
+.controller('editProfileCtrl', ['$scope', '$rootScope', '$stateParams', '$state',
 function ($scope, $rootScope, $stateParams, $state) {
 
 
 }])
 
-.controller('successCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
+.controller('successCtrl', ['$scope', '$rootScope', '$stateParams', '$state',
 function ($scope, $rootScope, $stateParams, $state) {
 
 
 }])
 
-.controller('groupChatCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
+.controller('groupChatCtrl', ['$scope', '$rootScope', '$stateParams', '$state',
 function ($scope, $rootScope, $stateParams, $state) {
 
 
 }])
 
 
-/*.controller('courseListingCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
+/*.controller('courseListingCtrl', ['$scope', '$rootScope', '$stateParams', '$state',
 function ($scope, $rootScope, $stateParams, $state) {
 
 
 }])*/
 
 
-.controller('addCourseCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
-function ($scope, $rootScope, $stateParams, $state) {
+.controller('addCourseCtrl', ['$scope', '$rootScope', '$stateParams', '$state', '$http',
+function ($scope, $rootScope, $stateParams, $state, $http) {
     $scope.data = { tier: 0 };
-    $scope.tierList = [{ text: "Tier 1: I just want some extra practice", id: 1}, 
+    $scope.tierList = [{ text: "Tier 1: I just want some extra practice", id: 1},
                        { text: "Tier 2: I just want to work on homework together", id:2},
                        { text: "Tier 3: I don't understand anything - send help", id:3}];
     $scope.addCourse = function() {
@@ -136,6 +142,12 @@ function ($scope, $rootScope, $stateParams, $state) {
         }
         $rootScope.notifs.push({ text: "You added course " + courseName });
         console.log($rootScope.courses);
+        $http({
+          url: 'https://your-server.com/groups/create',
+          method: 'POST',
+          data: courseInfo,
+          headers: {'Content-Type': 'application/json'}
+        });
         $state.go("tabsController.editProfile");
     }
 
