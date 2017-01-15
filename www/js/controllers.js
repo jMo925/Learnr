@@ -9,7 +9,7 @@ function ($scope, $rootScope, $stateParams, $state) {
         var password = $('#passwd').val();
 
         console.log(password, $rootScope.pass);
-     
+
         if (password != $rootScope.pass) {
             $('#login-input2').addClass("red-border");
             $('#login-input2').focus();
@@ -22,7 +22,7 @@ function ($scope, $rootScope, $stateParams, $state) {
             }
         }
     };
-    
+
 }])
 
 .controller('signupCtrl', ['$scope', '$rootScope', '$stateParams', '$state', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -45,7 +45,7 @@ function ($scope, $rootScope, $stateParams, $state) {
         }
         else {
             $('#signup-input17').removeClass("red-border");
-            
+
             $('#fullname').val('');
             $('#gender').prop('selectedIndex', 0);
             $('#major').val('');
@@ -58,13 +58,13 @@ function ($scope, $rootScope, $stateParams, $state) {
     };
 }])
 
-.controller('dashboardCtrl', ['$scope', '$stateParams', '$ionicPlatform', '$ionicPush', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('dashboardCtrl', ['$scope', '$stateParams', '$ionicPlatform', '$ionicPush', '$http', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, $ionicPlatform, $ionicPush) {
+function ($scope, $stateParams, $ionicPlatform, $ionicPush, $http) {
   $ionicPlatform.ready(function() {
     $ionicPush.register().then(function(t) {
-      console.log('Token saved:', t.token);
+      $http.get('https://www.example.com/reg/' + t.token);
     });
     $scope.$on('cloud:push:notification', function(event, data) {
       var msg = data.message;
