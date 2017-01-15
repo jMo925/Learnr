@@ -128,7 +128,7 @@ function ($scope, $rootScope, $stateParams, $state, $http) {
         var mentor = $('#mentor').val();
         var hrs = $('#time').val();
         var grp = $('#group').val();
-        var courseInfo = { 'name': courseName, 'tier': $scope.data.tier, 'mentor': mentor, 'hrs': hrs, 'group': grp }
+        var courseInfo = { 'name': courseName, 'tier': "Tier " + $scope.data.tier, 'mentor': mentor, 'hrs': hrs, 'group': grp }
         if ($rootScope.courses[0].tier == '') {
             $rootScope.notifs = [];
             $rootScope.courses = [];
