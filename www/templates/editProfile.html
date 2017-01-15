@@ -14,7 +14,11 @@
           </p>
         </div>
         <ion-list id="editProfile-list6">
-          <ion-item class="item-icon-right" id="editProfile-list-item24">ICS 161
+          <ion-item ng-repeat="course in courses">
+            {{course.name}}
+            <span class="item-note">Tier {{course.tier}}</span>
+          </ion-item>
+          <!--ion-item class="item-icon-right" id="editProfile-list-item24">ICS 161
             <span class="item-note">Tier 3</span>
             <i class="icon ion-android-remove-circle"></i>
           </ion-item>
@@ -25,7 +29,7 @@
           <ion-item class="item-icon-right" id="editProfile-list-item26">Something else
             <span class="item-note">Tier 2</span>
             <i class="icon ion-android-remove-circle"></i>
-          </ion-item>
+          </ion-item-->
           <ion-item class="item-icon-right positive" id="editProfile-list-item27" ui-sref="tabsController.addCourse">Add Course
             <i class="icon ion-android-add-circle"></i>
           </ion-item>

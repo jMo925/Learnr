@@ -110,15 +110,28 @@ function ($scope, $rootScope, $stateParams, $state) {
 }])
 
 
-.controller('courseListingCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
+/*.controller('courseListingCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
 function ($scope, $rootScope, $stateParams, $state) {
 
 
-}])
+}])*/
 
 
 .controller('addCourseCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
 function ($scope, $rootScope, $stateParams, $state) {
-
+    $scope.data = { tier: 0 };
+    $scope.tierList = [{ text: "Tier 1: I just want some extra practice", id: 1}, 
+                       { text: "Tier 2: I just want to work on homework together", id:2},
+                       { text: "Tier 3: I don't understand anything - send help", id:3}];
+    $scope.addCourse = function() {
+        var courseName = $('#course').val() + ' ' + $('#coursenum').val();
+        var mentor = $('#mentor').val();
+        var hrs = $('#time').val();
+        var grp = $('#group').val();
+        var courseInfo = { 'name': courseName, 'tier': $scope.data.tier, 'mentor': mentor, 'hrs': hrs, 'group': grp }
+        $rootScope.courses.push(courseInfo);
+        console.log($rootScope.courses);
+        $state.go("tabsController.editProfile");
+    }
 
 }])
