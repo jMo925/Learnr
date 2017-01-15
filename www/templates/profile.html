@@ -16,7 +16,11 @@
           </p>
         </div>
         <ion-list id="profile-list5">
-          <ion-item id="profile-list-item20">ICS 161
+          <ion-item ng-repeat="course in courses">
+            {{course.name}}
+            <span class="item-note">Tier {{course.tier}}</span>
+          </ion-item>
+          <!--ion-item id="profile-list-item20">ICS 161
             <span class="item-note">Tier 3</span>
           </ion-item>
           <ion-item id="profile-list-item21">BIO 97
@@ -24,7 +28,7 @@
           </ion-item>
           <ion-item id="profile-list-item22">Something else
             <span class="item-note">Tier 2</span>
-          </ion-item>
+          </ion-item-->
         </ion-list>
         <!--a ui-sref="tabsController.courseListing" id="courseListingButton" class="button button-stable  button-block">Course Listings</a-->
       </div>
