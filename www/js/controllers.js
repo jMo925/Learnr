@@ -1,8 +1,6 @@
 angular.module('app.controllers', ['ionic.cloud'])
 
-.controller('loginCtrl', ['$scope', '$rootScope', '$stateParams', '$state', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
+.controller('loginCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
 function ($scope, $rootScope, $stateParams, $state) {
     
     $rootScope.fullname = "Boosted Monkey";
@@ -36,9 +34,7 @@ function ($scope, $rootScope, $stateParams, $state) {
 
 }])
 
-.controller('signupCtrl', ['$scope', '$rootScope', '$stateParams', '$state', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
+.controller('signupCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
 function ($scope, $rootScope, $stateParams, $state) {
     $scope.submit = function() {
         $rootScope.fullname = $('#fullname').val();
@@ -69,9 +65,7 @@ function ($scope, $rootScope, $stateParams, $state) {
     };
 }])
 
-.controller('dashboardCtrl', ['$scope', '$stateParams', '$ionicPlatform', '$ionicPush', '$http', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
+.controller('dashboardCtrl', ['$scope', '$stateParams', '$ionicPlatform', '$ionicPush', '$http',
 function ($scope, $stateParams, $ionicPlatform, $ionicPush, $http) {
   $ionicPlatform.ready(function() {
     $ionicPush.register().then(function(t) {
@@ -85,60 +79,46 @@ function ($scope, $stateParams, $ionicPlatform, $ionicPush, $http) {
 
 }])
 
-.controller('groupsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+.controller('groupsCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
+function ($scope, $rootScope, $stateParams, $state) {
 
 
 }])
 
-.controller('profileCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+.controller('profileCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
+function ($scope, $rootScope, $stateParams, $state) {
 
 
 }])
 
-.controller('editProfileCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+.controller('editProfileCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
+function ($scope, $rootScope, $stateParams, $state) {
 
 
 }])
 
-.controller('successCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+.controller('successCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
+function ($scope, $rootScope, $stateParams, $state) {
 
 
 }])
 
-.controller('groupChatCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+.controller('groupChatCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
+function ($scope, $rootScope, $stateParams, $state) {
 
 
 }])
 
 
-.controller('courseListingCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+.controller('courseListingCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
+function ($scope, $rootScope, $stateParams, $state) {
 
 
 }])
 
 
-.controller('addCourseCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+.controller('addCourseCtrl', ['$scope', '$rootScope', '$stateParams', '$state', 
+function ($scope, $rootScope, $stateParams, $state) {
 
 
 }])
