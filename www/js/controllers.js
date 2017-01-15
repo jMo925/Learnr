@@ -4,7 +4,25 @@ angular.module('app.controllers', [])
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $rootScope, $stateParams, $state) {
-    console.log($rootScope.fullname);
+    $scope.submit = function() {
+        var user = $('#user').val();
+        var password = $('#passwd').val();
+
+        console.log(password, $rootScope.pass);
+     
+        if (password != $rootScope.pass) {
+            $('#login-input2').addClass("red-border");
+            $('#login-input2').focus();
+        } else {
+            if (user == $rootScope.email) {
+                $('#login-input2').removeClass("red-border");
+                $('#user').val('');
+                $('#passwd').val('');
+                $state.go('tabsController.dashboard');
+            }
+        }
+    };
+    
 }])
    
 .controller('signupCtrl', ['$scope', '$rootScope', '$stateParams', '$state', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -20,15 +38,24 @@ function ($scope, $rootScope, $stateParams, $state) {
         $rootScope.email = $('#email').val();
         $rootScope.pass = $('#pass').val();
         var cpass = $('#cpass').val();
+        console.log($rootScope.pass, cpass);
         if ($rootScope.pass != cpass) {
             $('#signup-input17').addClass("red-border");
             $('#signup-input17').focus();
         }
         else {
             $('#signup-input17').removeClass("red-border");
+            
+            $('#fullname').val('');
+            $('#gender').prop('selectedIndex', 0);
+            $('#major').val('');
+            $('#year').prop('selectedIndex', 0);
+            $('#email').val('');
+            $('#pass').val('');
+            $('#cpass').val('');
             $state.go('success');
         }
-    }
+    };
 }])
    
 .controller('dashboardCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller

@@ -1,3 +1,8 @@
+<style>
+  .red-border {
+    border: 1px solid red;
+  }
+</style>
 <ion-view title="Login" hide-back-button="true" id="page5">
   <ion-content padding="true" class="has-header">
     <img src="img/learnr.png" style="width: 50vw; height: auto; margin: -7vw 24vw;">
@@ -5,15 +10,15 @@
       <ion-list id="login-list1">
         <label class="item item-input" id="login-input1">
           <span class="input-label">Username</span>
-          <input type="text" placeholder="">
+          <input type="text" id="user" placeholder="">
         </label>
         <label class="item item-input" id="login-input2">
           <span class="input-label">Password</span>
-          <input type="password" placeholder="">
+          <input type="password" id="passwd" placeholder="">
         </label>
       </ion-list>
       <div class="spacer" style="height: 40px;"></div>
-      <a ui-sref="tabsController.dashboard" id="login-button1" class="button button-stable  button-block">Log in</a>
+      <a ng-click="submit()" id="login-button1" class="button button-stable  button-block">Log in</a>
       <a ui-sref="signup" id="login-button2" class="button button-positive  button-block button-clear">Or create an account</a>
     </form>
   </ion-content>
